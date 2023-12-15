@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>leaflet-map-csv</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <!-- bootdstrap css -->
+  <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <!-- styles css -->
+  <link rel="stylesheet" href="./styles/styles.css">
+  <!-- css for leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin=""/>
+   <!-- Make sure you put this AFTER Leaflet's CSS -->
+ <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+ integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+ crossorigin=""></script>
+  <!-- Load Leaflet code library - see updates at http://leafletjs.com/download.html
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script> -->
+
+  <!-- Load jQuery and PapaParse to read data from a CSV file -->
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+
+  
+
+</head>
+<body>
+  
+ 
+    <!-- Insert HTML division tag to layout the map -->
+  <div id="map" ></div>
+  <div>
+  <button class="toggle-btn toggle-btn1" id="layer1">Law Enforcement</button>
+  <button class="toggle-btn toggle-btn2" id="layer2">Law Enforcement 2</button>
+  </div>
+  <!-- Insert Javascript (.js) code to create the map -->
+
+  <script src="./map.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#layer1').on('click', function() {
+        map.removeLayer(layerGroup2);
+        map.addLayer(layerGroup1);
+      });
+
+      $('#layer2').on('click', function() {
+        map.removeLayer(layerGroup1);
+        map.addLayer(layerGroup2);
+      });
+    });
+  </script>
+</body>
+</html>
