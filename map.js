@@ -125,33 +125,33 @@ $.get('./MapDataS.csv', function(csvString) {
   for (var i = 0; i < data.length; i++) {
     var row = data[i];
 
-    var customIcon1 = L.icon({
-      iconUrl: './img/law-cir.png',
-      iconSize: [20, 20],
-      iconAnchor: [10, 10],
-    });
-
     var customIcon2 = L.icon({
-      iconUrl: './img/maplaw1.png',
-      iconSize: [22, 22],
-      iconAnchor: [11, 11],
+        iconUrl: './img/maplaw1.png',
+        iconSize: [16, 16],
+        iconAnchor: [8, 8],
     });
-
-    var marker1 = L.marker([row.lat, row.long], {
-      icon: customIcon1,
-    }).bindPopup(
-      `<strong>${row.City}</strong><br>State: ${row.State}<br>Entity: ${row.Entity}<br>Score: ${row['Score']}`,
-    );
 
     var marker2 = L.marker([row.lat, row.long], {
-      icon: customIcon2,
+        icon: customIcon2,
     }).bindPopup(
-      `<strong>${row.City}</strong><br>State: ${row.State}<br>Entity: ${row.Entity}<br>Score: ${row['Score']}`,
+        `<strong>${row.City}</strong><br>State: ${row.State}<br>Entity: ${row.Entity}<br>Score: ${row['Score']}`,
     );
 
-    layerGroup1.addLayer(marker1);
     layerGroup2.addLayer(marker2);
-  }
+
+    var circleMarker = L.circleMarker([row.lat, row.long], {
+        radius: 6, // Set your desired radius here
+        color: 'red', // Set the color of the circle marker
+        //fillColor: 'blue', // Set the fill color of the circle marker
+        fillOpacity: 0, // Set the opacity of the fill
+        weight: 1.2,
+    }).bindPopup(
+        `<strong>${row.City}</strong><br>State: ${row.State}<br>Entity: ${row.Entity}<br>Score: ${row['Score']}`,
+    );
+
+    layerGroup1.addLayer(circleMarker);
+}
+
 });
 
 var overlayMaps = {
