@@ -140,7 +140,7 @@ $.get('./MapDataS.csv', function(csvString) {
    // layerGroup2.addLayer(marker2);
 
     var circleMarker = L.circleMarker([row.lat, row.long], {
-        radius: 3, // Set your desired radius here
+        radius: 2, // Set your desired radius here
         color: 'red', // Set the color of the circle marker
         //fillColor: 'blue', // Set the fill color of the circle marker
         fillOpacity: 0, // Set the opacity of the fill
