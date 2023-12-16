@@ -127,14 +127,14 @@ $.get('./MapDataS.csv', function(csvString) {
 
     var customIcon1 = L.icon({
       iconUrl: './img/law-cir.png',
-      iconSize: [32, 32],
-      iconAnchor: [16, 16],
+      iconSize: [20, 20],
+      iconAnchor: [10, 10],
     });
 
     var customIcon2 = L.icon({
       iconUrl: './img/maplaw1.png',
-      iconSize: [34, 34],
-      iconAnchor: [16, 16],
+      iconSize: [22, 22],
+      iconAnchor: [11, 11],
     });
 
     var marker1 = L.marker([row.lat, row.long], {
